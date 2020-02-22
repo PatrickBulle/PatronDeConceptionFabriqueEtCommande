@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PatronDeConceptionFabriqueEtCommande.Commandes.Parametres.Impl;
+using System;
+using System.Windows;
 
 namespace PatronDeConceptionFabriqueEtCommande.Commandes
 {
@@ -10,7 +8,12 @@ namespace PatronDeConceptionFabriqueEtCommande.Commandes
     {
         public override void Execute()
         {
-            throw new NotImplementedException();
+            if (Parametre != null)
+            {
+                ParametreCommandeAfficherBoiteAvertissement param = (ParametreCommandeAfficherBoiteAvertissement)Parametre;
+
+                MessageBox.Show(param.Gravite + Environment.NewLine + param.Message, param.Titre, MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }

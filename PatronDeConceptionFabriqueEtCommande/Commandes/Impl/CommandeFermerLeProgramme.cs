@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PatronDeConceptionFabriqueEtCommande.Commandes.Parametres.Impl;
+using System;
+using System.Threading;
+using System.Windows;
 
 namespace PatronDeConceptionFabriqueEtCommande.Commandes
 {
@@ -10,7 +9,14 @@ namespace PatronDeConceptionFabriqueEtCommande.Commandes
     {
         public override void Execute()
         {
-            throw new NotImplementedException();
+            if (Parametre != null)
+            {
+                ParametreCommandeFermerLeProgramme param = (ParametreCommandeFermerLeProgramme)Parametre;
+               
+                MessageBox.Show(param.Message, param.Titre, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                Thread.Sleep(param.DelaiAvantFermeture);
+                Environment.Exit(0);
+            }
         }
     }
 }

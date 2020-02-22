@@ -35,8 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -45,9 +49,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="Toaster.NET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Toaster.NET.1.0.0\lib\net40\Toaster.NET.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -58,6 +59,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="JSon\DeserialisationJSon.cs" />
+    <Compile Include="Trame\Trame.cs" />
     <Page Include="FenetrePrincipale.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +70,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commandes\Commande.cs" />
+    <Compile Include="Commandes\Fabrique\CommandeFactory.cs" />
     <Compile Include="Commandes\Impl\CommandeAfficherLesBovins.cs" />
     <Compile Include="Commandes\Impl\CommandeFermerLeProgramme.cs" />
     <Compile Include="Commandes\Impl\CommandeAfficherBoiteAvertissement.cs" />
@@ -109,9 +113,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commandes\Fabrique\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="unnamed.jpg" />
   </ItemGroup>

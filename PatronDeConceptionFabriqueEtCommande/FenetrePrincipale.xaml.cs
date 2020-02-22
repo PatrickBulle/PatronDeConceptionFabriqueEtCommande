@@ -1,18 +1,6 @@
-﻿using PatronDeConceptionFabriqueEtCommande.Domaine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PatronDeConceptionFabriqueEtCommande.Commandes;
+using PatronDeConceptionFabriqueEtCommande.Commandes.Fabrique;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PatronDeConceptionFabriqueEtCommande
 {
@@ -25,36 +13,44 @@ namespace PatronDeConceptionFabriqueEtCommande
         {
             InitializeComponent();
             RadioButton_Information.IsChecked = true;
-
-            var b = new Bovin
-            {
-                Copaip = "FR",
-                Nunati = "123456789",
-                Nobovi = "TITINE"
-            };
-
         }
 
         private void RadioButton_Check_Info(object sender, RoutedEventArgs e)
         {
-            ExempleDeTrame.Text = @"tutu";
+            ExempleDeTrame.Text = "{\"Titre\":\"Pour information\",\"Message\":\"Message \\u00E0 titre informatif\"}";
         }
 
         private void RadioButton_Check_Avertissement(object sender, RoutedEventArgs e)
         {
-            ExempleDeTrame.Text = @"AVERTISSEMENT";
+            ExempleDeTrame.Text = "{\"Titre\":\"Attention\",\"Message\":\"Une erreur est survenue\",\"Gravite\":\"Attention\"}";
         }
         private void RadioButton_Check_FermerLeProgramme(object sender, RoutedEventArgs e)
         {
-            ExempleDeTrame.Text = @"FERMER LE PROGRAMME";
+            ExempleDeTrame.Text = "{\"Titre\":\"Ca va couper\",\"Message\":\"Le programme va se fermer dans quelques secondes\",\"DelaiAvantFermeture\":1500}";
         }
         private void RadioButton_Check_AfficherLesBovins(object sender, RoutedEventArgs e)
         {
-            ExempleDeTrame.Text = @"AFFICHER LES BOVINS";
+            ExempleDeTrame.Text = "[{\"Copaip\":\"FR\",\"Nunati\":\"2512345625\",\"Nobovi\":\"TITINE\"},{\"Copaip\":\"FR\",\"Nunati\":\"3912345639\",\"Nobovi\":\"PUPUCE\"},{\"Copaip\":\"FR\",\"Nunati\":\"7012345670\",\"Nobovi\":\"BLANCHE\"}]";
         }
 
         private void Button_GO_Click(object sender, RoutedEventArgs e)
         {
+            PatronDeConceptionFabriqueEtCommande.Trame.Trame trame = new PatronDeConceptionFabriqueEtCommande.Trame.Trame();
+
+            if (RadioButton_Information.IsChecked.Value)
+                trame.TypeDeMessage = CommandeFactory.TypeMessageInfo;
+            if (RadioButton_Avertissement.IsChecked.Value)
+                trame.TypeDeMessage = CommandeFactory.TypeMessageAvertissement;
+            if (RadioButton_Fermer.IsChecked.Value)
+                trame.TypeDeMessage = CommandeFactory.TypeMessageFermerLeProgramme;
+            if (RadioButton_AfficherLesBovins.IsChecked.Value)
+                trame.TypeDeMessage = CommandeFactory.TypeMessageAfficherLesBovins;
+            trame.ChargeUtile = ExempleDeTrame.Text;
+
+            Commande commande = CommandeFactory.GetCommande(trame);
+            if (commande != null)
+                commande.Execute();
+
 
         }
     }

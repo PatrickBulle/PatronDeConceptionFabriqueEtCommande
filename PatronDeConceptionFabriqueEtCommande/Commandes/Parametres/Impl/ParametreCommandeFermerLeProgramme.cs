@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PatronDeConceptionFabriqueEtCommande.Commandes.Parametres.Impl
 {
-    class ParametreCommandeFermerLeProgramme
+    class ParametreCommandeFermerLeProgramme : IParametreCommande
     {
         public string Titre { get; set; }
         public string Message { get; set; }
-        public long DelaiAvantFermeture { get; set; }
+        public Int32 DelaiAvantFermeture { get; set; }
     }
 }
