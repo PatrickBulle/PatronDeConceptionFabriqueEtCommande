@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="Fenêtre Principale" Height="450" Width="800" ResizeMode="NoResize" Icon="unnamed.jpg">
     <Grid>
-        <RadioButton GroupName="TypeMessage" Name="RadioButton_Information" Content="Information" HorizontalAlignment="Left" Margin="25,15,0,0" VerticalAlignment="Top" Width="200" IsChecked="True"/>
-        <RadioButton GroupName="TypeMessage" x:Name="RadioButton_Avertissement" Content="Avertissement" HorizontalAlignment="Left" Margin="25,45,0,0" VerticalAlignment="Top" Width="200"/>
-        <RadioButton GroupName="TypeMessage" x:Name="RadioButton_Fermer" Content="Fermer le programme" HorizontalAlignment="Left" Margin="25,75,0,0" VerticalAlignment="Top" Width="200"/>
-        <RadioButton GroupName="TypeMessage" x:Name="RadioButton_AfficherLesBovins" Content="Afficher la liste des bovins" HorizontalAlignment="Left" Margin="25,105,0,0" VerticalAlignment="Top" Width="200"/>
-        <TextBox x:Name="ExempleDeTrame" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"  Height="153" Margin="25,152,24,116" TextWrapping="Wrap" AcceptsReturn="True" Text="Exemple de trame" VerticalAlignment="Center" HorizontalAlignment="Center" Width="745" BorderBrush="Black"/>
-        <Button x:Name="Button_GO" Content="GO" HorizontalAlignment="Left" Height="51" Margin="305,345,0,0" VerticalAlignment="Top" Width="170" Click="Button_Click"/>
+        <RadioButton GroupName="TypeMessage" Name="RadioButton_Information" Content="Information" HorizontalAlignment="Left" Margin="25,15,0,0" VerticalAlignment="Top" Width="200" Checked="RadioButton_Check_Info"/>
+        <RadioButton GroupName="TypeMessage" x:Name="RadioButton_Avertissement" Content="Avertissement" HorizontalAlignment="Left" Margin="25,45,0,0" VerticalAlignment="Top" Width="200" Checked="RadioButton_Check_Avertissement"/>
+        <RadioButton GroupName="TypeMessage" x:Name="RadioButton_Fermer" Content="Fermer le programme" HorizontalAlignment="Left" Margin="25,75,0,0" VerticalAlignment="Top" Width="200" Checked="RadioButton_Check_FermerLeProgramme"/>
+        <RadioButton GroupName="TypeMessage" x:Name="RadioButton_AfficherLesBovins" Content="Afficher la liste des bovins" HorizontalAlignment="Left" Margin="25,105,0,0" VerticalAlignment="Top" Width="200" Checked="RadioButton_Check_AfficherLesBovins"/>
+        <TextBox x:Name="ExempleDeTrame" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"  Height="153" Margin="75,152,94,116" TextWrapping="Wrap" AcceptsReturn="True" Text="Exemple de trame" VerticalAlignment="Center" HorizontalAlignment="Center" Width="625" BorderBrush="Black" Padding="10"/>
+        <Button x:Name="Button_GO" Content="GO" HorizontalAlignment="Left" Height="51" Margin="305,345,0,0" VerticalAlignment="Top" Width="170" Click="Button_GO_Click"/>
 
     </Grid>
 </Window>

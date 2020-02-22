@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PatronDeConceptionFabriqueEtCommande.Domaine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,9 +24,36 @@ namespace PatronDeConceptionFabriqueEtCommande
         public MainWindow()
         {
             InitializeComponent();
+            RadioButton_Information.IsChecked = true;
+
+            var b = new Bovin
+            {
+                Copaip = "FR",
+                Nunati = "123456789",
+                Nobovi = "TITINE"
+            };
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void RadioButton_Check_Info(object sender, RoutedEventArgs e)
+        {
+            ExempleDeTrame.Text = @"tutu";
+        }
+
+        private void RadioButton_Check_Avertissement(object sender, RoutedEventArgs e)
+        {
+            ExempleDeTrame.Text = @"AVERTISSEMENT";
+        }
+        private void RadioButton_Check_FermerLeProgramme(object sender, RoutedEventArgs e)
+        {
+            ExempleDeTrame.Text = @"FERMER LE PROGRAMME";
+        }
+        private void RadioButton_Check_AfficherLesBovins(object sender, RoutedEventArgs e)
+        {
+            ExempleDeTrame.Text = @"AFFICHER LES BOVINS";
+        }
+
+        private void Button_GO_Click(object sender, RoutedEventArgs e)
         {
 
         }

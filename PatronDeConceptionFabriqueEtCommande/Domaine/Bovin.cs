@@ -8,8 +8,14 @@ namespace PatronDeConceptionFabriqueEtCommande.Domaine
 {
     class Bovin
     {
-        public String Copaip { get; set; }
-        public String Nunati { get; set; }
-        public String Nobovi { get; set; }
+        public string Copaip { get; set; }
+        public string Nunati { get; set; }
+        public string Nobovi { get; set; }
+
+        public override string ToString()
+        {
+            return Copaip + Nunati + " - " + Nobovi;
+        }
+
     }
 }

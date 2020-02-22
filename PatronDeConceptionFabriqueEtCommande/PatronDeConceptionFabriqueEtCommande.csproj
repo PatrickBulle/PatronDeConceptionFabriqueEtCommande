@@ -66,6 +66,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commandes\Commande.cs" />
+    <Compile Include="Commandes\Impl\CommandeAfficherLesBovins.cs" />
+    <Compile Include="Commandes\Impl\CommandeFermerLeProgramme.cs" />
+    <Compile Include="Commandes\Impl\CommandeAfficherBoiteAvertissement.cs" />
+    <Compile Include="Commandes\Impl\CommandeAfficherBoiteInfo.cs" />
+    <Compile Include="Commandes\Parametres\Impl\ParametreCommandeAfficherBoiteAvertissement.cs" />
+    <Compile Include="Commandes\Parametres\Impl\ParametreCommandeAfficherBoiteInfo.cs" />
+    <Compile Include="Commandes\Parametres\Impl\ParametreCommandeAfficherLesBovins.cs" />
+    <Compile Include="Commandes\Parametres\Impl\ParametreCommandeFermerLeProgramme.cs" />
+    <Compile Include="Commandes\Parametres\IParametreCommande.cs" />
     <Compile Include="Domaine\Bovin.cs" />
     <Compile Include="FenetrePrincipale.xaml.cs">
       <DependentUpon>FenetrePrincipale.xaml</DependentUpon>
@@ -101,8 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commandes\Fabrique\" />
-    <Folder Include="Commandes\Impl\" />
-    <Folder Include="Commandes\Parametres\Impl\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="unnamed.jpg" />
